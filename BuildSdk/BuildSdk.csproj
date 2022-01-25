@@ -5,13 +5,18 @@
         <ImplicitUsings>enable</ImplicitUsings>
         <Nullable>enable</Nullable>
 
+        <PackageId>BuildSdk</PackageId>
+
         <Title>BuildSdk</Title>
         <Authors>byCrookie</Authors>
-        <Copyright>https://github.com/byCrookie/BuildSdk/blob/main/LICENSE</Copyright>
+        <PackageTags>sdk;build;msbuild;core;net</PackageTags>
+        <Description>A dynamic workflow library for .NET applications (mainly console)</Description>
+
+        <RepositoryType>git</RepositoryType>
         <PackageProjectUrl>https://github.com/byCrookie/BuildSdk</PackageProjectUrl>
         <RepositoryUrl>https://github.com/byCrookie/BuildSdk</RepositoryUrl>
-        <RepositoryType>Github</RepositoryType>
-        <PackageTags>sdk;build;msbuild;core;net</PackageTags>
+
+        <Copyright>https://github.com/byCrookie/BuildSdk/blob/main/LICENSE</Copyright>
         <PackageLicenseExpression>MIT</PackageLicenseExpression>
 
         <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
