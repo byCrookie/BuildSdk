@@ -48,7 +48,7 @@
     </PropertyGroup>
 
     <PropertyGroup>
-        <NuGetPublishVersion Condition="'$(NuGetPublishVersion)' == ''">5.4.0</NuGetPublishVersion>
+        <NuGetPublishVersion Condition="'$(NuGetPublishVersion)' == ''">6.0.0</NuGetPublishVersion>
         <NuGetPublishPath Condition="'$(NuGetPublishPath)' == ''">$(UserProfile)\.nuget\$(NuGetPublishVersion)\</NuGetPublishPath>
         <NuGetPublishCmd Condition="'$(NuGetPublishType)' != 'remote'">add</NuGetPublishCmd>
         <NuGetPublishCmd Condition="'$(NuGetPublishType)' == 'remote'">push</NuGetPublishCmd>
