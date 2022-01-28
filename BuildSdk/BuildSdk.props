@@ -2,9 +2,10 @@
     <PropertyGroup>
         <NuGetPublishLocation>M:\Development\Nuget\Packages</NuGetPublishLocation>
         <NuGetPublishType>local</NuGetPublishType>
-        
+
+        <VersionNumber>1.0.1</VersionNumber>
         <VersionTime>$([System.DateTime]::Now.ToString(yyyy))$([System.DateTime]::Now.ToString(MMddhh))$([System.DateTime]::Now.ToString(mmss))</VersionTime>
-        <Version>1.0.1</Version>
-        <Version Condition="'$(Configuration)' == 'Debug'">$(Version)-pre-$(VersionTime)</Version>
+        <PackageVersion Condition="'$(Configuration)' == 'Debug'">$(VersionNumber)-pre-$(VersionTime)</PackageVersion>
+        <PackageVersion Condition="'$(Configuration)' == 'Release'">$(VersionNumber)</PackageVersion>
     </PropertyGroup>
 </Project>
