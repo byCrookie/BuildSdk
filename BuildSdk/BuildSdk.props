@@ -4,7 +4,7 @@
         <NuGetPublishType>local</NuGetPublishType>
 
         <VersionNumber>1.0.2</VersionNumber>
-        <VersionTime>$([System.DateTime]::Now.ToString(yyyy))$([System.DateTime]::Now.ToString(MMddhh))$([System.DateTime]::Now.ToString(mmss))</VersionTime>
+        <VersionTime>$([System.DateTime]::Now.ToString(yyyy))$([System.DateTime]::Now.ToString(MMddhh))$([System.DateTime]::Now.ToString(mm))</VersionTime>
         <PackageVersion Condition="'$(Configuration)' == 'Debug'">$(VersionNumber)-pre-$(VersionTime)</PackageVersion>
         <PackageVersion Condition="'$(Configuration)' == 'Release'">$(VersionNumber)</PackageVersion>
     </PropertyGroup>
