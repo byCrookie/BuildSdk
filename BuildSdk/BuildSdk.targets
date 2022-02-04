@@ -13,6 +13,16 @@
         <NuGetPublishCmd Condition="'$(NuGetPublishType)' != 'remote'">add</NuGetPublishCmd>
         <NuGetPublishCmd Condition="'$(NuGetPublishType)' == 'remote'">push</NuGetPublishCmd>
     </PropertyGroup>
+
+    <PropertyGroup>
+        <TargetsForTfmSpecificBuildOutput>$(TargetsForTfmSpecificBuildOutput);CopyProjectReferencesToPackage</TargetsForTfmSpecificBuildOutput>
+    </PropertyGroup>
+    
+    <Target Name="CopyProjectReferencesToPackage" DependsOnTargets="ResolveReferences">
+        <ItemGroup>
+            <BuildOutputInPackage Include="@(ReferenceCopyLocalPaths->WithMetadataValue('ReferenceSourceTarget', 'ProjectReference'))" />
+        </ItemGroup>
+    </Target>
     
     <Target Name="PublishPack" AfterTargets="Pack">
         <DownloadFile Condition="!Exists('$(NuGetPublishPath)nuget.exe') AND '$(NuGetPublishLocation)' != ''" SourceUrl="https://dist.nuget.org/win-x86-commandline/v$(NuGetPublishVersion)/nuget.exe" DestinationFolder="$(NuGetPublishPath)" />
