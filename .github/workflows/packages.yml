@@ -20,6 +20,7 @@ jobs:
       - name: Build solution and generate NuGet package
         run: |  
           cd .\BuildSdk
+          echo hello
           dotnet build -c Release
           dotnet pack -c Release -o packages\ --include-source --include-symbols --no-build 
       - name: Install NuGet client
