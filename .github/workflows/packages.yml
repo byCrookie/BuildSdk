@@ -17,10 +17,29 @@ jobs:
         with:
           dotnet-version: 6.0.x
           
+      - name: Prepare Directory.Build.props Settings
+        run: |
+          DIRECTORY_BUILD_PROPS=$(cat << EOF
+          <Project>
+            <PropertyGroup>
+                <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+                <PublishPackage>true</PublishPackage>
+                <PackagePublishType>local</PackagePublishType>
+                <PackagePublishLocalLocation>M:\Development\Nuget\Packages</PackagePublishLocalLocation>
+                <VersionPrefix>1.0.3</VersionPrefix>
+            </PropertyGroup>
+          </Project>
+          EOF
+          )
+          echo "DIRECTORY_BUILD_PROPS<<EOF" >> $GITHUB_ENV
+          echo "$DIRECTORY_BUILD_PROPS" >> $GITHUB_ENV
+          echo "EOF" >> $GITHUB_ENV
+          
       - name: Build solution and generate NuGet package
         run: |  
+          del Directory.Build.props
+          echo ${{ env.DIRECTORY_BUILD_PROPS }} >> Directory.Build.props
           cd .\BuildSdk
-          echo hello
           dotnet build -c Release
           dotnet pack -c Release -o packages\ --include-source --include-symbols --no-build 
       - name: Install NuGet client
