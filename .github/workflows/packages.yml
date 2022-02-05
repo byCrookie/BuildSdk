@@ -1,0 +1,27 @@
+name: Push Nuget Package
+
+on:
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: windows-latest
+    name: Update NuGet 
+    steps:
+
+      - name: Checkout repository
+        uses: actions/checkout@v2
+          
+      - name: Build solution and generate NuGet package
+        run: |  
+          cd .\src\BuildSdk
+          dotnet build -c Release
+          dotnet pack -c Release -o out --include-source --include-symbols 
+      - name: Install NuGet client
+        uses: nuget/setup-nuget@v1
+        
+      - name: Add private GitHub registry to NuGet
+        run: nuget sources add -name "BuildSdk" -Source https://nuget.pkg.github.com/byCrookie/index.json -Username byCrookie -Password ${{ secrets.GITHUB_TOKEN }}
+        
+      - name: Push generated package to GitHub registry
+        run: nuget push .\src\BuildSdk\out\*.nupkg -ApiKey ${{ secrets.GITHUB_TOKEN }} -Source "BuildSdk" -SkipDuplicate
