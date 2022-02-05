@@ -18,9 +18,9 @@ jobs:
           dotnet-version: 6.0.x
           
       - name: Build solution and generate NuGet package
-        run: |  
-          del Directory.Build.props
-          rename Github.Directory.Build.props Directory.Build.props
+        run: |
+          Remove-Item Directory.Build.props
+          Rename-Item -Path Github.Directory.Build.props -NewName Directory.Build.props
           cd .\BuildSdk
           dotnet build -c Release
           dotnet pack -c Release -o packages\ --include-source --include-symbols --no-build 
