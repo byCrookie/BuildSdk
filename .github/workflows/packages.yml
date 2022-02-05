@@ -1,4 +1,4 @@
-name: Push Nuget Package
+name: Release Nuget Packages
 
 on:
   workflow_dispatch:
@@ -6,10 +6,9 @@ on:
 jobs:
   build:
     runs-on: windows-latest
-    name: Update NuGet 
     steps:
 
-      - name: Checkout repository
+      - name: Checkout Repository
         uses: actions/checkout@v2
         
       - name: Setup .NET 6.0
@@ -17,18 +16,22 @@ jobs:
         with:
           dotnet-version: 6.0.x
           
-      - name: Build solution and generate NuGet package
+      - name: Generate Nuget Packages
         run: |
           Remove-Item Directory.Build.props
           Rename-Item -Path Github.Directory.Build.props -NewName Directory.Build.props
           cd .\BuildSdk
           dotnet build -c Release
-          dotnet pack -c Release -o packages\ --include-source --include-symbols --no-build 
-      - name: Install NuGet client
+          dotnet pack -c Release -o packages\ --include-source --include-symbols --no-build
+          
+      - name: Install NuGet Client
         uses: nuget/setup-nuget@v1
         
-      - name: Add private GitHub registry to NuGet
-        run: dotnet nuget add source --username byCrookie --password ${{ secrets.GITHUB_TOKEN }} --store-password-in-clear-text --name UploadBuildSdkToGithub "https://nuget.pkg.github.com/byCrookie/index.json"
+      - name: Remove Github NuGet Source
+        run: dotnet nuget remove source github
         
-      - name: Push generated package to GitHub registry
-        run: nuget push .\BuildSdk\packages\*.nupkg -ApiKey ${{ secrets.GITHUB_TOKEN }} -Source "UploadBuildSdkToGithub" -SkipDuplicate
+      - name: Add Github NuGet Source
+        run: dotnet nuget add source --username byCrookie --password ${{ secrets.GITHUB_TOKEN }} --store-password-in-clear-text --name github "https://nuget.pkg.github.com/byCrookie/index.json"
+        
+      - name: Push NuGet Packages To Github Packages
+        run: nuget push .\BuildSdk\packages\*.nupkg -ApiKey ${{ secrets.GITHUB_TOKEN }} -Source github -SkipDuplicate
