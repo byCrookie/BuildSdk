@@ -21,12 +21,12 @@ jobs:
         run: |  
           cd .\BuildSdk
           dotnet build -c Release
-          dotnet pack -c Release -o out --include-source --include-symbols 
+          dotnet pack -c Release -o packages\ --include-source --include-symbols --no-build 
       - name: Install NuGet client
         uses: nuget/setup-nuget@v1
         
       - name: Add private GitHub registry to NuGet
-        run: dotnet nuget add source --username byCrookie --password ${{ secrets.GITHUB_TOKEN }} --store-password-in-clear-text --name GithubBuildSdk "https://nuget.pkg.github.com/byCrookie/index.json"
+        run: dotnet nuget add source --username byCrookie --password ${{ secrets.GITHUB_TOKEN }} --store-password-in-clear-text --name UploadBuildSdkToGithub "https://nuget.pkg.github.com/byCrookie/index.json"
         
       - name: Push generated package to GitHub registry
-        run: nuget push .\BuildSdk\out\*.nupkg -ApiKey ${{ secrets.GITHUB_TOKEN }} -Source "BuildSdk" -SkipDuplicate
+        run: nuget push .\BuildSdk\packages\*.nupkg -ApiKey ${{ secrets.GITHUB_TOKEN }} -Source "UploadBuildSdkToGithub" -SkipDuplicate
