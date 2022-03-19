@@ -11,6 +11,11 @@
         <AvailableItemName Include="ProdConfigFile" />
     </ItemGroup>
 
+    <PropertyGroup>
+        <BuildDependsOn>CopyDevelopmentConfigFiles;$(BuildDependsOn)</BuildDependsOn>
+        <BuildDependsOn>CopyProductionConfigFiles;$(BuildDependsOn)</BuildDependsOn>
+    </PropertyGroup>
+
     <Target Name="CopyDevelopmentConfigFiles" Condition="'$(Configuration)' == 'Debug' And @(DevConfigFile->Count()) > 0">
         <Copy SourceFiles="@(DevConfigFile)" DestinationFiles="@(DevConfigFile->Replace('.Development', ''))"
               Condition="!Exists('@(DevConfigFile->Replace('.Development', ''))')"
