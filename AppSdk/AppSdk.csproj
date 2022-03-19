@@ -5,12 +5,12 @@
         <ImplicitUsings>enable</ImplicitUsings>
         <Nullable>enable</Nullable>
 
-        <PackageId>BuildSdk</PackageId>
+        <PackageId>AppSdk</PackageId>
 
-        <Title>BuildSdk</Title>
+        <Title>AppSdk</Title>
         <Authors>byCrookie</Authors>
         <PackageTags>sdk;build;msbuild;core;net</PackageTags>
-        <Description>BuildSdk is a custom build sdk for msbuild. It automaticly generates nuget packages for release/debug with automatic versioning for debug. After a successful build the nuget package is published to a local or public nuget-feed.</Description>
+        <Description>AppSdk is a custom build sdk for msbuild. It automaticly create development and release config files.</Description>
 
         <RepositoryType>git</RepositoryType>
         <PackageProjectUrl>https://github.com/byCrookie/BuildSdk</PackageProjectUrl>
@@ -18,16 +18,16 @@
 
         <Copyright>https://github.com/byCrookie/BuildSdk/blob/main/LICENSE</Copyright>
         <PackageLicenseExpression>MIT</PackageLicenseExpression>
-        
+
         <GeneratePackageOnBuild Condition="'$(GeneratePackageOnBuild)' == ''">true</GeneratePackageOnBuild>
     </PropertyGroup>
 
     <ItemGroup>
-        <None Remove="BuildSdk.targets" />
+        <None Remove="AppSdk.targets" />
     </ItemGroup>
 
     <ItemGroup>
-        <Content Include="BuildSdk.targets">
+        <Content Include="AppSdk.targets">
             <Pack>true</Pack>
             <PackagePath>build\;buildCrossTargeting\</PackagePath>
         </Content>

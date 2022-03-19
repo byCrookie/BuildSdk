@@ -1,6 +1,8 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BuildSdk", "BuildSdk\BuildSdk.csproj", "{9AED74E8-3F10-45E2-9C6F-29646FECA45D}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AppSdk", "AppSdk\AppSdk.csproj", "{88B6F34D-3821-4559-8D81-D6E22FF40D5C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NugetSdk", "NugetSdk\NugetSdk.csproj", "{8B5AC996-FC96-496B-BA0C-2B587F3B63E0}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -8,9 +10,13 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{9AED74E8-3F10-45E2-9C6F-29646FECA45D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{9AED74E8-3F10-45E2-9C6F-29646FECA45D}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{9AED74E8-3F10-45E2-9C6F-29646FECA45D}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{9AED74E8-3F10-45E2-9C6F-29646FECA45D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{88B6F34D-3821-4559-8D81-D6E22FF40D5C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{88B6F34D-3821-4559-8D81-D6E22FF40D5C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{88B6F34D-3821-4559-8D81-D6E22FF40D5C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{88B6F34D-3821-4559-8D81-D6E22FF40D5C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8B5AC996-FC96-496B-BA0C-2B587F3B63E0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8B5AC996-FC96-496B-BA0C-2B587F3B63E0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8B5AC996-FC96-496B-BA0C-2B587F3B63E0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8B5AC996-FC96-496B-BA0C-2B587F3B63E0}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

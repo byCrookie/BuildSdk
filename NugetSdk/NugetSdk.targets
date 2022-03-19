@@ -1,37 +1,12 @@
-<Project Sdk="Microsoft.NET.Sdk">
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
 
     <PropertyGroup>
         <TargetFramework>net6.0</TargetFramework>
         <ImplicitUsings>enable</ImplicitUsings>
-        <Nullable>enable</Nullable>
+        <Nullable Condition="'$(Nullable)' == ''">enable</Nullable>
 
-        <PackageId>BuildSdk</PackageId>
-
-        <Title>BuildSdk</Title>
-        <Authors>byCrookie</Authors>
-        <PackageTags>sdk;build;msbuild;core;net</PackageTags>
-        <Description>BuildSdk is a custom build sdk for msbuild. It automaticly generates nuget packages for release/debug with automatic versioning for debug. After a successful build the nuget package is published to a local or public nuget-feed.</Description>
-
-        <RepositoryType>git</RepositoryType>
-        <PackageProjectUrl>https://github.com/byCrookie/BuildSdk</PackageProjectUrl>
-        <RepositoryUrl>https://github.com/byCrookie/BuildSdk</RepositoryUrl>
-
-        <Copyright>https://github.com/byCrookie/BuildSdk/blob/main/LICENSE</Copyright>
-        <PackageLicenseExpression>MIT</PackageLicenseExpression>
-        
         <GeneratePackageOnBuild Condition="'$(GeneratePackageOnBuild)' == ''">true</GeneratePackageOnBuild>
     </PropertyGroup>
-
-    <ItemGroup>
-        <None Remove="BuildSdk.targets" />
-    </ItemGroup>
-
-    <ItemGroup>
-        <Content Include="BuildSdk.targets">
-            <Pack>true</Pack>
-            <PackagePath>build\;buildCrossTargeting\</PackagePath>
-        </Content>
-    </ItemGroup>
 
     <PropertyGroup>
         <VersionPrefix Condition="'$(VersionPrefix)' == ''">1.0.0</VersionPrefix>
@@ -50,10 +25,19 @@
         <PackagePublishLocation Condition="'$(PackagePublishType)' == 'remote'">$(PackagePublishRemoteLocation)</PackagePublishLocation>
     </PropertyGroup>
 
+    <PropertyGroup>
+        <TargetsForTfmSpecificBuildOutput>$(TargetsForTfmSpecificBuildOutput);CopyProjectReferencesToPackage</TargetsForTfmSpecificBuildOutput>
+    </PropertyGroup>
+
+    <Target Name="CopyProjectReferencesToPackage" DependsOnTargets="ResolveReferences">
+        <ItemGroup>
+            <BuildOutputInPackage Include="@(ReferenceCopyLocalPaths->WithMetadataValue('ReferenceSourceTarget', 'ProjectReference'))" />
+        </ItemGroup>
+    </Target>
+
     <Target Name="PublishPack" AfterTargets="Pack" Condition="'$(PublishPackage)' == 'true'">
         <DownloadFile Condition="!Exists('$(NuGetExePath)nuget.exe') AND '$(PackagePublishLocation)' != ''" SourceUrl="https://dist.nuget.org/win-x86-commandline/v$(NuGetExeVersion)/nuget.exe" DestinationFolder="$(NuGetExePath)" />
         <Exec Command="&quot;$(NuGetExePath)nuget.exe&quot; $(NuGetPublishCmd) &quot;$(PackageOutputAbsolutePath)$(PackageId).$(PackageVersion).nupkg&quot; -Source &quot;$(PackagePublishLocation.TrimEnd('\'))&quot;" Condition="'$(PackagePublishLocation)' != ''" />
         <Warning Text="Skipping NuGet publish, PackagePublishLocation is not set in project file." Condition="'$(PackagePublishLocation)' == ''" />
     </Target>
-
 </Project>
