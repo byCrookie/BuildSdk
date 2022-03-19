@@ -11,9 +11,15 @@
         <AvailableItemName Include="ProdConfigFile" />
     </ItemGroup>
 
-    <Target Name="CopyDevelopmentConfigFiles" Condition="@(DevelopmentConfigFile->Count()) > 0">
-        <Copy SourceFiles="@(DevelopmentConfigFile)" DestinationFiles="@(DevelopmentConfigFile->Replace('.Development', ''))"
-              Condition="!Exists('@(DevelopmentConfigFile->Replace('.Development', ''))')"
+    <Target Name="CopyDevelopmentConfigFiles" Condition="'$(Configuration)' == 'Debug' And @(DevConfigFile->Count()) > 0">
+        <Copy SourceFiles="@(DevConfigFile)" DestinationFiles="@(DevConfigFile->Replace('.Development', ''))"
+              Condition="!Exists('@(DevConfigFile->Replace('.Development', ''))')"
+              OverwriteReadOnlyFiles="true" SkipUnchangedFiles="true" />
+    </Target>
+
+    <Target Name="CopyProductionConfigFiles" Condition="'$(Configuration)' == 'Release' And @(ProdConfigFile->Count()) > 0">
+        <Copy SourceFiles="@(ProdConfigFile)" DestinationFiles="@(ProdConfigFile->Replace('.Production', ''))"
+              Condition="!Exists('@(ProdConfigFile->Replace('.Production', ''))')"
               OverwriteReadOnlyFiles="true" SkipUnchangedFiles="true" />
     </Target>
     
