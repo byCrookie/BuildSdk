@@ -5,7 +5,7 @@
         <ImplicitUsings>enable</ImplicitUsings>
         <Nullable>enable</Nullable>
 
-        <PackageId>AppSdk</PackageId>
+        <PackageId>byCrookie.AppSdk</PackageId>
 
         <Title>AppSdk</Title>
         <Authors>byCrookie</Authors>
@@ -23,11 +23,11 @@
     </PropertyGroup>
 
     <ItemGroup>
-        <None Remove="AppSdk.targets" />
+        <None Remove="byCrookie.AppSdk.targets" />
     </ItemGroup>
-
+    
     <ItemGroup>
-        <Content Include="AppSdk.targets">
+        <Content Include="byCrookie.AppSdk.targets">
             <Pack>true</Pack>
             <PackagePath>build\;buildCrossTargeting\</PackagePath>
         </Content>
