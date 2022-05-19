@@ -40,9 +40,9 @@
         <MinorVersion Condition="'$(MinorVersion)' == ''">0</MinorVersion>
         <PatchVersion Condition="'$(PatchVersion)' == ''">0</PatchVersion>
 
-        <MajorVersion Condition="'$(NextVersionType)' == 'Major'">$([MSBuild]::Add($(MajorVersion), 1))</MajorVersion>
-        <MinorVersion Condition="'$(NextVersionType)' == 'Minor'">$([MSBuild]::Add($(MinorVersion), 1))</MinorVersion>
-        <PatchVersion Condition="'$(NextVersionType)' == 'Patch'">$([MSBuild]::Add($(PatchVersion), 1))</PatchVersion>
+        <MajorVersion Condition="'$(Configuration)' == 'Debug' AND '$(NextVersionType)' == 'Major'">$([MSBuild]::Add($(MajorVersion), 1))</MajorVersion>
+        <MinorVersion Condition="'$(Configuration)' == 'Debug' AND '$(NextVersionType)' == 'Minor'">$([MSBuild]::Add($(MinorVersion), 1))</MinorVersion>
+        <PatchVersion Condition="'$(Configuration)' == 'Debug' AND '$(NextVersionType)' == 'Patch'">$([MSBuild]::Add($(PatchVersion), 1))</PatchVersion>
 
         <VersionPrefix Condition="'$(Configuration)' == 'Debug'">$(MajorVersion).$(MinorVersion).$(PatchVersion)</VersionPrefix>
 
