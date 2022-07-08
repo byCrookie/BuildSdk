@@ -19,7 +19,14 @@
     </PropertyGroup>
 
     <ItemGroup>
-        <None Remove="byCrookie.AppSdk.props" />
+        <None Remove="byCrookie.AppSdk.targets" />
+    </ItemGroup>
+
+    <ItemGroup>
+        <Content Include="byCrookie.AppSdk.targets">
+            <Pack>true</Pack>
+            <PackagePath>build\;buildCrossTargeting\</PackagePath>
+        </Content>
     </ItemGroup>
 
     <PropertyGroup>
