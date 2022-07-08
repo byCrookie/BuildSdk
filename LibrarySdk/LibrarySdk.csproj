@@ -17,13 +17,13 @@
     </PropertyGroup>
 
     <ItemGroup>
-        <None Remove="byCrookie.LibrarySdk.targets" />
+        <None Remove="byCrookie.LibrarySdk.props" />
     </ItemGroup>
 
     <ItemGroup>
-        <Content Include="byCrookie.LibrarySdk.targets">
-            <Pack>true</Pack>
-            <PackagePath>build\;buildCrossTargeting\</PackagePath>
+        <Content Include="byCrookie.LibrarySdk.props">
+          <Pack>true</Pack>
+          <PackagePath>build\;buildCrossTargeting\</PackagePath>
         </Content>
     </ItemGroup>
 
