@@ -1,0 +1,8 @@
+<Project>
+    <PropertyGroup>
+        <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+        <PublishPackage>true</PublishPackage>
+        <PackagePublishType>local</PackagePublishType>
+        <PackagePublishLocalLocation>M:\Development\Nuget\Packages</PackagePublishLocalLocation>
+    </PropertyGroup>
+</Project>

@@ -1,10 +1,6 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
     <PropertyGroup>
-        <TargetFramework>net6.0</TargetFramework>
-        <ImplicitUsings>enable</ImplicitUsings>
-        <Nullable>enable</Nullable>
-
         <PackageId>byCrookie.AppSdk</PackageId>
 
         <Title>AppSdk</Title>
@@ -23,10 +19,15 @@
     </PropertyGroup>
 
     <ItemGroup>
+        <None Remove="byCrookie.AppSdk.props" />
         <None Remove="byCrookie.AppSdk.targets" />
     </ItemGroup>
     
     <ItemGroup>
+        <Content Include="byCrookie.AppSdk.props">
+          <Pack>true</Pack>
+          <PackagePath>build\;buildCrossTargeting\</PackagePath>
+        </Content>
         <Content Include="byCrookie.AppSdk.targets">
             <Pack>true</Pack>
             <PackagePath>build\;buildCrossTargeting\</PackagePath>

@@ -19,6 +19,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".github", ".github", "{E057
 		.github\workflows\packages.yml = .github\workflows\packages.yml
 	EndProjectSection
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LibrarySdk", "LibrarySdk\LibrarySdk.csproj", "{11B9BCE6-1AEA-4303-8001-CB7DBC2C2BF6}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +35,10 @@ Global
 		{8B5AC996-FC96-496B-BA0C-2B587F3B63E0}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8B5AC996-FC96-496B-BA0C-2B587F3B63E0}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8B5AC996-FC96-496B-BA0C-2B587F3B63E0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{11B9BCE6-1AEA-4303-8001-CB7DBC2C2BF6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{11B9BCE6-1AEA-4303-8001-CB7DBC2C2BF6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{11B9BCE6-1AEA-4303-8001-CB7DBC2C2BF6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{11B9BCE6-1AEA-4303-8001-CB7DBC2C2BF6}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{E05715B7-BB57-4041-B37E-93925F417B66} = {5B7DCE3D-F8C2-4B01-9AEB-53D68833EF8A}

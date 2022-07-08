@@ -1,33 +1,6 @@
 <Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
 
     <PropertyGroup>
-        <TargetFramework Condition="'$(TargetFramework)' == ''">net6.0</TargetFramework>
-        <ImplicitUsings>enable</ImplicitUsings>
-        <Nullable Condition="'$(Nullable)' == ''">enable</Nullable>
-
-        <GeneratePackageOnBuild Condition="'$(GeneratePackageOnBuild)' == ''">true</GeneratePackageOnBuild>
-    </PropertyGroup>
-
-    <PropertyGroup>
-        <NextVersionType Condition="'$(NextVersionType)' == ''">Major</NextVersionType>
-        
-        <MajorVersion Condition="'$(MajorVersion)' == ''">1</MajorVersion>
-        <MinorVersion Condition="'$(MinorVersion)' == ''">0</MinorVersion>
-        <PatchVersion Condition="'$(PatchVersion)' == ''">0</PatchVersion>
-
-        <MajorVersion Condition="'$(Configuration)' == 'Debug' AND '$(NextVersionType)' == 'Major'">$([MSBuild]::Add($(MajorVersion), 1))</MajorVersion>
-        <MinorVersion Condition="'$(Configuration)' == 'Debug' AND '$(NextVersionType)' == 'Minor'">$([MSBuild]::Add($(MinorVersion), 1))</MinorVersion>
-        <PatchVersion Condition="'$(Configuration)' == 'Debug' AND '$(NextVersionType)' == 'Patch'">$([MSBuild]::Add($(PatchVersion), 1))</PatchVersion>
-        
-        <VersionPrefix Condition="'$(Configuration)' == 'Debug'">$(MajorVersion).$(MinorVersion).$(PatchVersion)</VersionPrefix>
-        
-        <VersionPrefix Condition="'$(Configuration)' == 'Release'">$(MajorVersion).$(MinorVersion).$(PatchVersion)</VersionPrefix>
-        <VersionSuffix Condition="'$(VersionSuffix)' == ''">pre-$([System.DateTime]::Now.ToString(yyyy))$([System.DateTime]::Now.ToString(MMddhh))$([System.DateTime]::Now.ToString(mm))</VersionSuffix>
-        <PackageVersion Condition="'$(Configuration)' == 'Debug'">$(VersionPrefix)-$(VersionSuffix)</PackageVersion>
-        <PackageVersion Condition="'$(Configuration)' == 'Release'">$(VersionPrefix)</PackageVersion>
-    </PropertyGroup>
-
-    <PropertyGroup>
         <PublishPackage Condition="'$(PublishPackage)' == ''">true</PublishPackage>
         <NuGetExeVersion Condition="'$(NuGetExeVersion)' == ''">6.0.0</NuGetExeVersion>
         <NuGetExePath Condition="'$(NuGetExePath)' == ''">$(UserProfile)\.nuget\$(NuGetExeVersion)\</NuGetExePath>
@@ -52,4 +25,5 @@
         <Exec Command="&quot;$(NuGetExePath)nuget.exe&quot; $(NuGetPublishCmd) &quot;$(PackageOutputAbsolutePath)$(PackageId).$(PackageVersion).nupkg&quot; -Source &quot;$(PackagePublishLocation.TrimEnd('\'))&quot;" Condition="'$(PackagePublishLocation)' != ''" />
         <Warning Text="Skipping NuGet publish, PackagePublishLocation is not set in project file." Condition="'$(PackagePublishLocation)' == ''" />
     </Target>
+    
 </Project>

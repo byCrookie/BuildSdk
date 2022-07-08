@@ -1,12 +1,12 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
     <PropertyGroup>
-        <PackageId>byCrookie.NugetSdk</PackageId>
+        <PackageId>byCrookie.LibrarySdk</PackageId>
 
-        <Title>NugetSdk</Title>
+        <Title>LibrarySdk</Title>
         <Authors>byCrookie</Authors>
         <PackageTags>sdk;build;msbuild;core;net</PackageTags>
-        <Description>NugetSdk is a custom build sdk for msbuild. It automaticly generates nuget packages for release/debug with automatic versioning for debug. After a successful build the nuget package is published to a local or public nuget-feed.</Description>
+        <Description>LibrarySdk is a custom build sdk for msbuild. It automaticly create development and release config files.</Description>
 
         <RepositoryType>git</RepositoryType>
         <PackageProjectUrl>https://github.com/byCrookie/BuildSdk</PackageProjectUrl>
@@ -14,20 +14,19 @@
 
         <Copyright>https://github.com/byCrookie/BuildSdk/blob/main/LICENSE</Copyright>
         <PackageLicenseExpression>MIT</PackageLicenseExpression>
-
-        <GeneratePackageOnBuild Condition="'$(GeneratePackageOnBuild)' == ''">true</GeneratePackageOnBuild>
     </PropertyGroup>
 
     <ItemGroup>
-        <None Remove="byCrookie.NugetSdk.targets" />
+        <None Remove="byCrookie.LibrarySdk.props" />
+        <None Remove="byCrookie.LibrarySdk.targets" />
     </ItemGroup>
 
     <ItemGroup>
-        <Content Include="byCrookie.NugetSdk.props">
+        <Content Include="byCrookie.LibrarySdk.props">
           <Pack>true</Pack>
           <PackagePath>build\;buildCrossTargeting\</PackagePath>
         </Content>
-        <Content Include="byCrookie.NugetSdk.targets">
+        <Content Include="byCrookie.LibrarySdk.targets">
             <Pack>true</Pack>
             <PackagePath>build\;buildCrossTargeting\</PackagePath>
         </Content>
