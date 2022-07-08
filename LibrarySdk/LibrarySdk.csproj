@@ -20,13 +20,6 @@
         <None Remove="byCrookie.LibrarySdk.props" />
     </ItemGroup>
 
-    <ItemGroup>
-        <Content Include="byCrookie.LibrarySdk.props">
-          <Pack>true</Pack>
-          <PackagePath>build\;buildCrossTargeting\</PackagePath>
-        </Content>
-    </ItemGroup>
-
     <PropertyGroup>
         <NextVersionType Condition="'$(NextVersionType)' == ''">Major</NextVersionType>
 
