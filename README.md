@@ -2,10 +2,13 @@
 BuildSdk is a custom build sdk for msbuild.
 
 ## NugetSdk
-It automaticly generates nuget packages for release/debug with automatic versioning for debug. After a successful build the nuget package is published to a local or public nuget-feed.
+Standardizes build props and versioning. It automaticly generates nuget packages for release/debug with automatic versioning for debug. After a successful build the nuget package is published to a local or public nuget-feed.
 
 ## AppSdk
-It automaticly create development and release config files.
+Standardizes build props and versioning. It automaticly create development and release config files.
+
+## LibrarySdk
+Standardizes build props and versioning.
 
 ## How to use
 
