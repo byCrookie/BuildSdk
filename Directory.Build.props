@@ -1,13 +1,15 @@
 <Project>
     <PropertyGroup>
+        <MajorVersion>1</MajorVersion>
+        <MinorVersion>0</MinorVersion>
+        <PatchVersion>16</PatchVersion>
+    </PropertyGroup>
+    
+    <PropertyGroup>
         <TargetFramework>net6.0</TargetFramework>
         <ImplicitUsings>enable</ImplicitUsings>
         <Nullable>enable</Nullable>
         <LangVersion>10</LangVersion>
-        
-        <MajorVersion>1</MajorVersion>
-        <MinorVersion>0</MinorVersion>
-        <PatchVersion>16</PatchVersion>
     </PropertyGroup>
 
     <PropertyGroup Condition="'$(IsLocalBuild)' == '' OR '$(IsLocalBuild)' == 'true'">
