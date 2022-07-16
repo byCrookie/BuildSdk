@@ -18,12 +18,17 @@
 
     <ItemGroup>
         <None Remove="byCrookie.LibrarySdk.props" />
+        <None Remove="byCrookie.LibrarySdk.targets" />
     </ItemGroup>
 
     <ItemGroup>
         <Content Include="byCrookie.LibrarySdk.props">
             <Pack>true</Pack>
             <PackagePath>build\;buildCrossTargeting\</PackagePath>
+        </Content>
+        <Content Include="byCrookie.LibrarySdk.targets">
+          <Pack>true</Pack>
+          <PackagePath>build\;buildCrossTargeting\</PackagePath>
         </Content>
     </ItemGroup>
 

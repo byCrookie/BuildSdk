@@ -1,0 +1,7 @@
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+
+    <Target Name="LogVersion" BeforeTargets="Build">
+        <Message Text="'$(MSBuildProjectName)' -> Version: '$(Version)'" Importance="high" />
+    </Target>
+
+</Project>

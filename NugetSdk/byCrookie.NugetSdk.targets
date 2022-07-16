@@ -1,4 +1,8 @@
 <Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+    
+    <Target Name="LogVersion" BeforeTargets="Build">
+        <Message Text="'$(MSBuildProjectName)' -> PackageVersion: '$(PackageVersion)'" Importance="high" />
+    </Target>
 
     <!-- ===================================
     Nuget Package

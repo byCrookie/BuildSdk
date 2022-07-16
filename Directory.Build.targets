@@ -15,6 +15,10 @@
         <PackageVersion Condition="'$(Configuration)' == 'Release'">$(VersionPrefix)</PackageVersion>
     </PropertyGroup>
 
+    <Target Name="LogVersion" BeforeTargets="Build">
+        <Message Text="'$(MSBuildProjectName)' -> PackageVersion: '$(PackageVersion)'" Importance="high" />
+    </Target>
+
     <PropertyGroup>
         <PublishPackage Condition="'$(PublishPackage)' == ''">true</PublishPackage>
         <NuGetExeVersion Condition="'$(NuGetExeVersion)' == ''">6.0.0</NuGetExeVersion>
