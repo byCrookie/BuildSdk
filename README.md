@@ -45,6 +45,8 @@ BuildSdk makes it very easy to have an full-fleged build flow. BuildSdk nuget-pa
 
 You can customize the build process using a Directory.Build.props file.
 
+This example makes use of the versioning aspect.
+
 ```xml
 <Project>
     <PropertyGroup>
@@ -60,6 +62,37 @@ You can customize the build process using a Directory.Build.props file.
         <LangVersion>10</LangVersion>
 
         <ManagePackageVersionsCentrally>true</ManagePackageVersionsCentrally>
+    </PropertyGroup>
+</Project>
+```
+
+Following example makes use of the versioning and nuget generation aspect.
+
+```xml
+<Project>
+    <PropertyGroup>
+        <MajorVersion>1</MajorVersion>
+        <MinorVersion>0</MinorVersion>
+        <PatchVersion>17</PatchVersion>
+    </PropertyGroup>
+    
+    <PropertyGroup>
+        <TargetFramework>net6.0</TargetFramework>
+        <ImplicitUsings>enable</ImplicitUsings>
+        <Nullable>enable</Nullable>
+        <LangVersion>10</LangVersion>
+    </PropertyGroup>
+
+    <PropertyGroup Condition="'$(IsLocalBuild)' == '' OR '$(IsLocalBuild)' == 'true'">
+        <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+        <PublishPackage>true</PublishPackage>
+        <PackagePublishType>local</PackagePublishType>
+        <PackagePublishLocalLocation>M:\Development\Nuget\Packages</PackagePublishLocalLocation>
+    </PropertyGroup>
+
+    <PropertyGroup Condition="'$(IsLocalBuild)' == 'false'">
+        <GeneratePackageOnBuild>false</GeneratePackageOnBuild>
+        <PublishPackage>false</PublishPackage>
     </PropertyGroup>
 </Project>
 ```
