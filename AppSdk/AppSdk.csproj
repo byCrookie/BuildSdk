@@ -19,12 +19,13 @@
     <ItemGroup>
         <None Remove="byCrookie.AppSdk.props" />
         <None Remove="byCrookie.AppSdk.targets" />
+        <None Remove=".buildsdk.prerelease.version" />
     </ItemGroup>
 
     <ItemGroup>
         <Content Include="byCrookie.AppSdk.props">
-          <Pack>true</Pack>
-          <PackagePath>build\;buildCrossTargeting\</PackagePath>
+            <Pack>true</Pack>
+            <PackagePath>build\;buildCrossTargeting\</PackagePath>
         </Content>
         <Content Include="byCrookie.AppSdk.targets">
             <Pack>true</Pack>
