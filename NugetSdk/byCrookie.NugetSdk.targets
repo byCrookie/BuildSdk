@@ -8,7 +8,7 @@
         <LocalPrereleaseVersionPath>.buildsdk.prerelease.version</LocalPrereleaseVersionPath>
     </PropertyGroup>
 
-    <Target Name="ReadLocalPrereleaseVersion" BeforeTargets="Build" Condition="'$(Configuration)' == 'Debug'">
+    <Target Name="ReadLocalPrereleaseVersion" BeforeTargets="BeforeBuild" Condition="'$(Configuration)' == 'Debug'">
 
         <ReadLinesFromFile File="$(LocalPrereleaseVersionPath)">
             <Output TaskParameter="Lines" PropertyName="PrereleaseNumber"/>
