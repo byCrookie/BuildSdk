@@ -76,7 +76,7 @@
 
     <PropertyGroup>
         <PublishPackage Condition="'$(PublishPackage)' == ''">true</PublishPackage>
-        <NuGetExeVersion Condition="'$(NuGetExeVersion)' == ''">6.0.0</NuGetExeVersion>
+        <NuGetExeVersion Condition="'$(NuGetExeVersion)' == ''">6.4.0</NuGetExeVersion>
         <NuGetExePath Condition="'$(NuGetExePath)' == ''">$(UserProfile)\.nuget\$(NuGetExeVersion)\</NuGetExePath>
         <NuGetPublishCmd Condition="'$(PackagePublishType)' != 'remote'">add</NuGetPublishCmd>
         <NuGetPublishCmd Condition="'$(PackagePublishType)' == 'remote'">push</NuGetPublishCmd>
