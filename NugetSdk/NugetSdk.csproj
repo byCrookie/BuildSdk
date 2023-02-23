@@ -17,7 +17,6 @@
     </PropertyGroup>
 
     <ItemGroup>
-        <None Remove="byCrookie.NugetSdk.props" />
         <None Remove="byCrookie.NugetSdk.targets" />
         <None Remove=".buildsdk.prerelease.version" />
     </ItemGroup>

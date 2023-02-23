@@ -17,7 +17,6 @@
     </PropertyGroup>
 
     <ItemGroup>
-        <None Remove="byCrookie.AppSdk.props" />
         <None Remove="byCrookie.AppSdk.targets" />
         <None Remove=".buildsdk.prerelease.version" />
     </ItemGroup>

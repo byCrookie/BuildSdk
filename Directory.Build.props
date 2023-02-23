@@ -2,7 +2,7 @@
     <PropertyGroup>
         <MajorVersion>1</MajorVersion>
         <MinorVersion>0</MinorVersion>
-        <PatchVersion>22</PatchVersion>
+        <PatchVersion>23</PatchVersion>
     </PropertyGroup>
     
     <PropertyGroup>
