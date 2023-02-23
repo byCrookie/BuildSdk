@@ -23,10 +23,6 @@
     </ItemGroup>
 
     <ItemGroup>
-        <Content Include="byCrookie.NugetSdk.props">
-          <Pack>true</Pack>
-          <PackagePath>build\;buildCrossTargeting\</PackagePath>
-        </Content>
         <Content Include="byCrookie.NugetSdk.targets">
             <Pack>true</Pack>
             <PackagePath>build\;buildCrossTargeting\</PackagePath>
