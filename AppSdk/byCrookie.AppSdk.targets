@@ -1,4 +1,4 @@
-<Project InitialTargets="ReadLocalPrereleaseVersion" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
 
     <!-- ===================================
     Version
@@ -8,7 +8,7 @@
         <LocalPrereleaseVersionPath>.buildsdk.prerelease.version</LocalPrereleaseVersionPath>
     </PropertyGroup>
 
-    <Target Name="ReadLocalPrereleaseVersion" Condition="'$(Configuration)' == 'Debug'">
+    <Target Name="ReadLocalPrereleaseVersion" BeforeTargets="BeforeBuild;Pack" Condition="'$(Configuration)' == 'Debug'">
 
         <ReadLinesFromFile File="$(LocalPrereleaseVersionPath)">
             <Output TaskParameter="Lines" PropertyName="PrereleaseNumber"/>
