@@ -1,0 +1,17 @@
+<Project>
+    <UsingTask TaskName="PrereleaseVersionTask" AssemblyName="Sdk.dll"/>
+
+    <Target Name="IncrementLocalPreleaseNumber" BeforeTargets="BeforeBuild;BeforeRebuild;Pack" Condition="'$(Configuration)' == 'Debug'">
+        <PrereleaseVersionTask LocalPrereleaseVersionFilePath="$(LocalPrereleaseVersionPath)">
+            <Output TaskParameter="OriginalPrereleaseCounter" PropertyName="OriginalPrereleaseCounter"/>
+        </PrereleaseVersionTask>
+
+        <ItemGroup>
+            <None Remove="$(LocalPrereleaseVersionPath)"/>
+        </ItemGroup>
+
+        <Message Text="Original PrereleaseCounter -> $(OriginalPrereleaseCounter)" Importance="high"/>
+        <Message Text="PrereleaseCounter -> $(PrereleaseCounter)" Importance="high"/>
+    </Target>
+    
+</Project>

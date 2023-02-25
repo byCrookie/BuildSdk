@@ -1,0 +1,33 @@
+<Project>
+
+    <!--    <PropertyGroup>-->
+    <!--        <IsCrossTargetingProject Condition="$(TargetFrameworks) != ''">true</IsCrossTargetingProject>-->
+    <!--    </PropertyGroup>-->
+
+    <!--    <Target Name="SingletonTarget" Condition="'$(IsCrossTargetingProject)' == '$(IsCrossTargetingBuild)'" BeforeTargets="DispatchToInnerBuilds;BeforeBuild;BeforeRebuild">-->
+    <!--        <PropertyGroup Condition="'$(IsCrossTargetingBuild)' == ''">-->
+    <!--            <CrossTargetMessage>$(TargetFramework)</CrossTargetMessage>-->
+    <!--        </PropertyGroup>-->
+    <!--        <PropertyGroup Condition="'$(IsCrossTargetingBuild)' == 'true'">-->
+    <!--            <CrossTargetMessage>Multi-Targeted</CrossTargetMessage>-->
+    <!--        </PropertyGroup>-->
+    <!--        <Message Text="################# Singleton Target for $(MSBuildProjectName) - $(CrossTargetMessage)" Importance="high"/>-->
+    <!--    </Target>-->
+
+    <!--    <Target Name="MultiTargetingInfos" BeforeTargets="DispatchToInnerBuilds;BeforeBuild;BeforeRebuild;Pack">-->
+    <!--        <Message Text="################# Display Properties for $(MSBuildProjectName) $(TargetFramework)" Importance="high"/>-->
+    <!--        <Message Text="MajorVersion: '$(MajorVersion)'" Importance="high"/>-->
+    <!--        <Message Text="MinorVersion: '$(MinorVersion)'" Importance="high"/>-->
+    <!--        <Message Text="PatchVersion: '$(PatchVersion)'" Importance="high"/>-->
+    <!--        <Message Text="IsCrossTargetingBuild: '$(IsCrossTargetingBuild)'" Importance="high"/>-->
+    <!--        <Message Text="IsCrossTargetingProject: '$(IsCrossTargetingProject)'" Importance="high"/>-->
+    <!--    </Target>-->
+
+    <!--    <Target Name="InnerBuild" AfterTargets="MultiTargetingInfos" Condition="'$(IsCrossTargetingProject)' == '' OR ('$(IsCrossTargetingProject)' == 'true' AND '$(IsCrossTargetingBuild)' == 'true')">-->
+    <!--        <Message Text="RUN InnerBuild Target" Importance="high"/>-->
+    <!--    </Target>-->
+
+    <Import Project="Local/Prerelease/SetVersion.targets"/>
+    <Import Project="SetVersion/SetVersion.targets"/>
+
+</Project>

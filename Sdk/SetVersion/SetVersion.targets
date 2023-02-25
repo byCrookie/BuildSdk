@@ -1,0 +1,20 @@
+<Project>
+    <UsingTask TaskName="SetVersionTask" AssemblyName="Sdk.dll"/>
+
+    <Target Name="SetVersions" AfterTargets="WriteLocalPrereleaseVersion">
+        <PrereleaseVersionTask Configuration="$(Configuration)"
+                               PrereleaseCounter="$(PrereleaseCounter)"
+                               MajorVersion="$(MajorVersion)"
+                               MinorVersion="$(MinorVersion)"
+                               PatchVersion="$(PatchVersion)"
+                               VersionSuffix="$(VersionSuffix)">
+            <Output TaskParameter="PatchVersion" PropertyName="PatchVersion"/>
+            <Output TaskParameter="VersionPrefix" PropertyName="VersionPrefix"/>
+            <Output TaskParameter="VersionSuffix" PropertyName="VersionSuffix"/>
+            <Output TaskParameter="PackageVersion" PropertyName="PackageVersion"/>
+        </PrereleaseVersionTask>
+
+        <Message Text="'$(MSBuildProjectName)' -> PackageVersion: '$(PackageVersion)'" Importance="high"/>
+    </Target>
+    
+</Project>

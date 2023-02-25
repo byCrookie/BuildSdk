@@ -6,7 +6,8 @@
     </PropertyGroup>
     
     <PropertyGroup>
-        <TargetFramework>netstandard2.1</TargetFramework>
+<!--        <TargetFramework>netstandard2.1</TargetFramework>-->
+        <TargetFrameworks>netstandard2.1;net6.0;net7.0</TargetFrameworks>
         <ImplicitUsings>enable</ImplicitUsings>
         <Nullable>enable</Nullable>
         <LangVersion>11</LangVersion>
@@ -23,5 +24,9 @@
     <PropertyGroup Condition="'$(IsLocalBuild)' == 'false'">
         <GeneratePackageOnBuild>false</GeneratePackageOnBuild>
         <PublishPackage>false</PublishPackage>
+    </PropertyGroup>
+
+    <PropertyGroup>
+        <LocalPrereleaseVersionPath>.buildsdk.prerelease.version</LocalPrereleaseVersionPath>
     </PropertyGroup>
 </Project>

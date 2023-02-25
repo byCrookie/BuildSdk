@@ -21,6 +21,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".github", ".github", "{E057
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LibrarySdk", "LibrarySdk\LibrarySdk.csproj", "{11B9BCE6-1AEA-4303-8001-CB7DBC2C2BF6}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sdk", "Sdk\Sdk.csproj", "{9BBA8246-2E12-4B7E-B808-030C60EB8E7E}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -39,6 +41,10 @@ Global
 		{11B9BCE6-1AEA-4303-8001-CB7DBC2C2BF6}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{11B9BCE6-1AEA-4303-8001-CB7DBC2C2BF6}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{11B9BCE6-1AEA-4303-8001-CB7DBC2C2BF6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9BBA8246-2E12-4B7E-B808-030C60EB8E7E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9BBA8246-2E12-4B7E-B808-030C60EB8E7E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9BBA8246-2E12-4B7E-B808-030C60EB8E7E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9BBA8246-2E12-4B7E-B808-030C60EB8E7E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{E05715B7-BB57-4041-B37E-93925F417B66} = {5B7DCE3D-F8C2-4B01-9AEB-53D68833EF8A}

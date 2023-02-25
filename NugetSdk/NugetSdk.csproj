@@ -18,7 +18,6 @@
 
     <ItemGroup>
         <None Remove="byCrookie.NugetSdk.targets" />
-        <None Remove=".buildsdk.prerelease.version" />
     </ItemGroup>
 
     <ItemGroup>
@@ -26,6 +25,10 @@
             <Pack>true</Pack>
             <PackagePath>build\;buildCrossTargeting\</PackagePath>
         </Content>
+    </ItemGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\Sdk\Sdk.csproj" />
     </ItemGroup>
 
 </Project>
