@@ -18,7 +18,6 @@
 
     <ItemGroup>
         <None Remove="byCrookie.LibrarySdk.targets" />
-        <None Remove=".buildsdk.prerelease.version" />
     </ItemGroup>
 
     <ItemGroup>

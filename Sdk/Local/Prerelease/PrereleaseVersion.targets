@@ -1,9 +1,15 @@
 <Project>
-    <UsingTask TaskName="PrereleaseVersionTask" AssemblyName="Sdk.dll"/>
+
+    <PropertyGroup>
+        <CustomTasksAssembly>$(MSBuildThisFileDirectory)$(MSBuildThisFileName).dll</CustomTasksAssembly>
+    </PropertyGroup>
+
+    <UsingTask TaskName="PrereleaseVersionTask" AssemblyFile="$(CustomTasksAssembly)"/>
 
     <Target Name="IncrementLocalPreleaseNumber" BeforeTargets="BeforeBuild;BeforeRebuild;Pack" Condition="'$(Configuration)' == 'Debug'">
         <PrereleaseVersionTask LocalPrereleaseVersionFilePath="$(LocalPrereleaseVersionPath)">
             <Output TaskParameter="OriginalPrereleaseCounter" PropertyName="OriginalPrereleaseCounter"/>
+            <Output TaskParameter="PrereleaseCounter" PropertyName="PrereleaseCounter"/>
         </PrereleaseVersionTask>
 
         <ItemGroup>

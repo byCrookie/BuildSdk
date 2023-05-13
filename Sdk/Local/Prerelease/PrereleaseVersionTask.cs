@@ -16,10 +16,12 @@ public class PrereleaseVersionTask : Task
 
     public override bool Execute()
     {
-        var localState = LocalStateProvider.RetrieveLocalState(Log, LocalPrereleaseVersionFilePath);
+        var localState = LocalStateStore.RetrieveLocalState(Log, LocalPrereleaseVersionFilePath);
         Log.LogMessage(MessageImportance.High, $"increment PrereleaseCounter in local state file at {LocalPrereleaseVersionFilePath}");
+        localState.PreleaseCounter += 1;
         OriginalPrereleaseCounter = localState.PreleaseCounter;
-        PrereleaseCounter = localState.PreleaseCounter + 1;
+        PrereleaseCounter = localState.PreleaseCounter;
+        LocalStateStore.SaveLocalState(Log, LocalPrereleaseVersionFilePath, localState);
         return true;
     }
 }

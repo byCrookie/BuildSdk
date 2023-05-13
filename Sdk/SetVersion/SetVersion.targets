@@ -1,7 +1,12 @@
 <Project>
-    <UsingTask TaskName="SetVersionTask" AssemblyName="Sdk.dll"/>
 
-    <Target Name="SetVersions" AfterTargets="WriteLocalPrereleaseVersion">
+    <PropertyGroup>
+        <CustomTasksAssembly>$(MSBuildThisFileDirectory)$(MSBuildThisFileName).dll</CustomTasksAssembly>
+    </PropertyGroup>
+
+    <UsingTask TaskName="SetVersionTask" AssemblyFile="$(CustomTasksAssembly)"/>
+
+    <Target Name="SetVersions" AfterTargets="IncrementLocalPreleaseNumber">
         <PrereleaseVersionTask Configuration="$(Configuration)"
                                PrereleaseCounter="$(PrereleaseCounter)"
                                MajorVersion="$(MajorVersion)"
